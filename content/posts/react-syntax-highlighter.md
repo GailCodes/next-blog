@@ -13,3 +13,5 @@ Install react syntax highlighter with npm
 ```
 npm i react-syntax-highlighter
 ```
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore odio maiores quia numquam ratione quo iusto nam error voluptatum exercitationem ipsum fugiat, quisquam, eos culpa esse nesciunt, laboriosam saepe cum soluta. Similique quibusdam eius delectus adipisci veniam exercitationem provident nobis, ratione facere cupiditate laboriosam. Quas, nesciunt vero. Nulla, libero laborum.
