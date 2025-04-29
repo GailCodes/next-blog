@@ -39,7 +39,7 @@ export default function Home() {
             </div>
 
             <Link
-              href={`/blog/${post.filename}`}
+              href={`posts/${post.filename}`}
               className="text-3xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
             >
               {post?.data?.title}
@@ -63,7 +63,7 @@ export default function Home() {
 
       <hr className="my-8" />
 
-      {posts.slice(2).map((post, index) => (
+      {posts.slice(2, 6).map((post, index) => (
         <div key={index} className="flex gap-4">
           <div className="relative pb-2">
             <img
@@ -75,7 +75,7 @@ export default function Home() {
 
           <div>
             <Link
-              href={`/blog/${post.filename}`}
+              href={`posts/${post.filename}`}
               className="text-xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
             >
               {post?.data?.title}
@@ -94,6 +94,10 @@ export default function Home() {
           </div>
         </div>
       ))}
+
+      <Link href={"/posts"} className="text-md text-black hover:underline">
+        View all posts
+      </Link>
     </main>
   );
 }

@@ -31,7 +31,7 @@ export function getBlogPosts(): BlogPost[] {
           date: new Date(data.date),
           description: data.description,
           author: data.author,
-          cover: data.cover,
+          cover: data.cover || "/covers/default-cover.jpg",
         },
         content: markdown,
       };
