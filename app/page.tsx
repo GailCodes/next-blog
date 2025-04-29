@@ -15,9 +15,11 @@ export default function Home() {
       <h1 className={`${fontLora.className} text-6xl`}>NextJS Blog</h1>
 
       <p className="mt-8">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus,
-        quos? Ratione porro ducimus cumque hic magnam voluptas libero officia
-        molestiae?
+        Welcome to NextJS Blog, where John Doe and guest writers share practical
+        Next.js tutorials, tips, and real-world solutions. Whether you're
+        learning the basics or optimizing complex applications, we break down
+        concepts with clear examples and actionable code. Join a community of
+        developers building faster, more efficient web experiences with Next.js.
       </p>
 
       <hr className="my-8" />
@@ -38,12 +40,24 @@ export default function Home() {
             </div>
 
             <Link
-              href={`/blog/${post.name}`}
+              href={`/blog/${post.filename}`}
               className="text-3xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
             >
-              {post.data.title}
+              {post?.data?.title}
             </Link>
-            <p className="font-medium">Author: {post.data.author}</p>
+            <p>
+              <span className="font-medium">By {post?.data?.author}</span>
+              {" | "}
+              <span className="italic">
+                {post?.data?.date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </span>
+            </p>
           </div>
         ))}
       </div>

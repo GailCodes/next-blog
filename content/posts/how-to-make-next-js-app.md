@@ -1,6 +1,6 @@
 ---
 title: "How to Make a Fully Functioning Web Page With Next.js 13!"
-date: "2025-04-26"
+date: "2025-04-27T16:35"
 description: "This guide will teach you to make a fully functioning web page with Next.js 13 right from the beginning."
 author: "Jane Doe"
 cover: "/covers/code-on-screen.jpg"

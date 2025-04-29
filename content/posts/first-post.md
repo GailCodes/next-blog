@@ -1,6 +1,6 @@
 ---
 title: "My First Blog Post"
-date: "2025-04-26"
+date: "2025-04-26T14:30"
 description: "My first blog post ever!"
 author: "John Doe"
 cover: "/covers/first-post.jpg"

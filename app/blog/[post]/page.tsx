@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 
 export default function Post({ params }: { params: { post: string } }) {
   const posts = getBlogPosts();
-  const post = posts.find((blogPost) => blogPost.name === params.post);
+  const post = posts.find((blogPost) => blogPost.filename === params.post);
 
   return (
     <article id="blog-post" className="prose mx-auto">
