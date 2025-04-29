@@ -1,6 +1,6 @@
 ---
 title: "React Syntax Highlighter!"
-date: "2025-04-29T14:35"
+date: "2025-04-28T14:35"
 description: "React Syntax Highlighter!"
 author: "John Doe"
 cover: "/covers/react-logo-dark.jpg"
