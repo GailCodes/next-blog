@@ -1,6 +1,7 @@
 import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
 import Link from "next/link";
+import Divider from "../components/Divider";
 
 const fontLora = Lora({
   variable: "--font-lora",
@@ -15,7 +16,7 @@ export default function Home() {
         All posts:
       </h3>
 
-      <hr className="my-8" />
+      <Divider />
 
       {posts.map((post, index) => (
         <div key={index} className="flex gap-4">

@@ -1,6 +1,8 @@
 import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
 import Link from "next/link";
+import Divider from "./components/Divider";
+import { formatDateTime } from "@/lib/date";
 
 const fontLora = Lora({
   variable: "--font-lora",
@@ -21,7 +23,7 @@ export default function Home() {
         developers building faster, more efficient web experiences with Next.js.
       </p>
 
-      <hr className="my-8" />
+      <Divider />
 
       <h3 className={`${fontLora.className} text-4xl font-semibold mb-4`}>
         Latest posts:
@@ -47,21 +49,13 @@ export default function Home() {
             <p>
               <span className="font-medium">By {post?.data?.author}</span>
               {" | "}
-              <span className="italic">
-                {post?.data?.date.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </span>
+              <span className="italic">{formatDateTime(post?.data?.date)}</span>
             </p>
           </div>
         ))}
       </div>
 
-      <hr className="my-8" />
+      <Divider />
 
       {posts.slice(2, 6).map((post, index) => (
         <div key={index} className="flex gap-4">
@@ -82,15 +76,7 @@ export default function Home() {
             </Link>
             <p className="font-medium">{post?.data?.author}</p>
 
-            <p className="italic">
-              {post?.data?.date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </p>
+            <p className="italic">{formatDateTime(post?.data?.date)}</p>
           </div>
         </div>
       ))}
