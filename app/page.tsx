@@ -26,7 +26,7 @@ export default function Home() {
         Latest posts:
       </h3>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {posts.map((post, index) => (
           <div key={index}>
             <div className="relative pb-2">
