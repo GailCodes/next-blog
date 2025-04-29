@@ -1,7 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
+import Link from "next/link";
 
 const fontLora = Lora({
   variable: "--font-lora",
@@ -29,13 +28,13 @@ export default function Home() {
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {posts.map((post, index) => (
+        {posts.slice(0, 2).map((post, index) => (
           <div key={index}>
-            <div className="relative pb-2">
+            <div className="relative pb-4">
               <img
                 src={post.data.cover}
                 alt="Cover image"
-                className="rounded-sm"
+                className="rounded-sm h-70 w-full"
               />
             </div>
 
@@ -61,6 +60,40 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <hr className="my-8" />
+
+      {posts.slice(2).map((post, index) => (
+        <div key={index} className="flex gap-4">
+          <div className="relative pb-2">
+            <img
+              src={post.data.cover}
+              alt="Cover image"
+              className="rounded-sm w-42"
+            />
+          </div>
+
+          <div>
+            <Link
+              href={`/blog/${post.filename}`}
+              className="text-xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
+            >
+              {post?.data?.title}
+            </Link>
+            <p className="font-medium">{post?.data?.author}</p>
+
+            <p className="italic">
+              {post?.data?.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+          </div>
+        </div>
+      ))}
     </main>
   );
 }
