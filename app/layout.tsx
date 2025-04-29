@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontRoboto.className} bg-zinc-300 text-black text-lg`}
+        className={`${fontRoboto.className} bg-zinc-300 text-black text-lg px-4`}
       >
         <div className="my-8 max-w-5xl m-auto">{children}</div>
       </body>

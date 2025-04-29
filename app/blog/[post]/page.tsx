@@ -1,3 +1,4 @@
+import CodeBlock, { CodeBlockProps } from "@/app/components/CodeBlock";
 import { getBlogPosts } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 
@@ -23,7 +24,7 @@ export default function Post({ params }: { params: { post: string } }) {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
 
         <div className="relative z-20 h-full flex items-center p-8">
-          <h1 className="text-6xl text-white font-bold drop-shadow-lg">
+          <h1 className="text-3xl md:text-6xl text-white font-bold drop-shadow-lg">
             {post?.data.title}
           </h1>
         </div>
@@ -40,12 +41,22 @@ export default function Post({ params }: { params: { post: string } }) {
           h4: ({ node, ...props }) => (
             <h4 className="text-lg font-medium py-4" {...props} />
           ),
-          pre: ({ node, ...props }) => (
-            <pre className="border-2 border-black rounded-md p-4" {...props} />
+          img: ({ node, ...props }) => (
+            <img className="rounded-md w-2xl" {...props} />
           ),
-          code: ({ node, ...props }) => (
-            <code className="text-lg font-medium" {...props} />
-          ),
+          code({ node, className, children, ...props }: any) {
+            const match = /language-(\w+)/.exec(className || "");
+
+            return "inline" in props ? (
+              <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">
+                {children}
+              </code>
+            ) : (
+              <CodeBlock language={match?.[1] || "javascript"}>
+                {String(children).replace(/\n$/, "")}
+              </CodeBlock>
+            );
+          },
         }}
       >
         {post?.content}
