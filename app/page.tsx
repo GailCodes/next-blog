@@ -2,7 +2,8 @@ import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
 import Link from "next/link";
 import Divider from "./components/Divider";
-import { formatDateTime } from "@/lib/date";
+import PostCardBig from "./components/Posts/PostCardBig";
+import PostCardSmall from "./components/Posts/PostCardSmall";
 
 const fontLora = Lora({
   variable: "--font-lora",
@@ -31,57 +32,34 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {posts.slice(0, 2).map((post, index) => (
-          <div key={index}>
-            <div className="relative pb-4">
-              <img
-                src={post.data.cover}
-                alt="Cover image"
-                className="rounded-sm h-70 w-full"
-              />
-            </div>
-
-            <Link
-              href={`posts/${post.filename}`}
-              className="text-3xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
-            >
-              {post?.data?.title}
-            </Link>
-            <p>
-              <span className="font-medium">By {post?.data?.author}</span>
-              {" | "}
-              <span className="italic">{formatDateTime(post?.data?.date)}</span>
-            </p>
-          </div>
+          <PostCardBig
+            key={index}
+            coverImage={post.data.cover}
+            url={post.filename}
+            title={post.data.title}
+            author={post.data.author}
+            date={post.data.date}
+          />
         ))}
       </div>
 
       <Divider />
 
       {posts.slice(2, 6).map((post, index) => (
-        <div key={index} className="flex gap-4">
-          <div className="relative pb-2">
-            <img
-              src={post.data.cover}
-              alt="Cover image"
-              className="rounded-sm w-42"
-            />
-          </div>
-
-          <div>
-            <Link
-              href={`posts/${post.filename}`}
-              className="text-xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
-            >
-              {post?.data?.title}
-            </Link>
-            <p className="font-medium">{post?.data?.author}</p>
-
-            <p className="italic">{formatDateTime(post?.data?.date)}</p>
-          </div>
-        </div>
+        <PostCardSmall
+          key={index}
+          coverImage={post.data.cover}
+          url={post.filename}
+          title={post.data.title}
+          author={post.data.author}
+          date={post.data.date}
+        />
       ))}
 
-      <Link href={"/posts"} className="text-md text-black hover:underline">
+      <Link
+        href={"/posts"}
+        className="text-md text-black dark:text-white hover:underline"
+      >
         View all posts
       </Link>
     </main>

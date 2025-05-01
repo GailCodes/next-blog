@@ -1,14 +1,13 @@
 "use client";
 
+import { CodeBlock } from "@/types/ui/CodeBlock";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-export interface CodeBlockProps {
-  language: string;
-  children: string;
-}
-
-export default function CodeBlock({ language, children }: CodeBlockProps) {
+export default function HighlightedCodeBlock({
+  language,
+  children,
+}: CodeBlock) {
   return (
     <SyntaxHighlighter
       language={language}

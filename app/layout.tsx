@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "./components/ThemeToggle";
 
 const fontRoboto = Roboto({
   variable: "--font-roboto",
@@ -20,9 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontRoboto.className} bg-zinc-300 text-black text-lg px-4`}
+        className={`${fontRoboto.className} bg-zinc-300 text-black dark:bg-zinc-900 dark:text-white text-lg px-4`}
       >
-        <div className="my-8 max-w-5xl m-auto">{children}</div>
+        <div className="flex flex-col gap-4 my-8 max-w-5xl m-auto">
+          <ThemeToggle className="self-end" />
+          {children}
+        </div>
       </body>
     </html>
   );

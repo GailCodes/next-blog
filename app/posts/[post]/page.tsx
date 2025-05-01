@@ -1,4 +1,4 @@
-import CodeBlock, { CodeBlockProps } from "@/app/components/CodeBlock";
+import HighlightedCodeBlock from "@/app/components/CodeBlock";
 import { getBlogPosts } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 
@@ -52,9 +52,9 @@ export default function Post({ params }: { params: { post: string } }) {
                 {children}
               </code>
             ) : (
-              <CodeBlock language={match?.[1] || "javascript"}>
+              <HighlightedCodeBlock language={match?.[1] || "javascript"}>
                 {String(children).replace(/\n$/, "")}
-              </CodeBlock>
+              </HighlightedCodeBlock>
             );
           },
         }}

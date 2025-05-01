@@ -2,6 +2,7 @@ import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
 import Link from "next/link";
 import Divider from "../components/Divider";
+import PostCardSmall from "../components/Posts/PostCardSmall";
 
 const fontLora = Lora({
   variable: "--font-lora",
@@ -19,35 +20,14 @@ export default function Home() {
       <Divider />
 
       {posts.map((post, index) => (
-        <div key={index} className="flex gap-4">
-          <div className="relative pb-2">
-            <img
-              src={post.data.cover}
-              alt="Cover image"
-              className="rounded-sm w-42"
-            />
-          </div>
-
-          <div>
-            <Link
-              href={`posts/${post.filename}`}
-              className="text-xl text-blue-800 font-medium hover:text-blue-700 hover:underline"
-            >
-              {post?.data?.title}
-            </Link>
-            <p className="font-medium">{post?.data?.author}</p>
-
-            <p className="italic">
-              {post?.data?.date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </p>
-          </div>
-        </div>
+        <PostCardSmall
+          key={index}
+          coverImage={post.data.cover}
+          url={post.filename}
+          title={post.data.title}
+          author={post.data.author}
+          date={post.data.date}
+        />
       ))}
     </main>
   );

@@ -1,22 +1,11 @@
+import { Post } from "@/types/lib/Post";
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
-
-export interface BlogPost {
-  filename: string;
-  data: {
-    title: string;
-    date: Date;
-    description: string;
-    author: string;
-    cover: string;
-  };
-  content: string;
-}
+import path from "path";
 
 const postsDir = path.join(process.cwd(), "content/posts");
 
-export function getBlogPosts(): BlogPost[] {
+export function getBlogPosts(): Post[] {
   const files = fs.readdirSync(postsDir);
 
   return files
