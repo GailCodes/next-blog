@@ -1,4 +1,4 @@
-import HighlightedCodeBlock from "@/app/components/CodeBlock";
+import HighlightedCodeBlock from "@/app/components/HighlightedCodeBlock";
 import { getBlogPosts } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 
