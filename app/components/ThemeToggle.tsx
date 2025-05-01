@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { SunIcon } from "@heroicons/react/16/solid";
+import { MoonIcon } from "@heroicons/react/16/solid";
 
 export default function LightDarkModeToggle({
   className,
@@ -27,9 +29,9 @@ export default function LightDarkModeToggle({
   return (
     <button
       onClick={() => setIsDarkMode(!isDarkMode)}
-      className={`p-2 bg-gray-200 text-black rounded-md ${className}`}
+      className={`cursor-pointer ${className}`}
     >
-      {isDarkMode ? "light" : "dark"}
+      {isDarkMode ? <MoonIcon className="w-5" /> : <SunIcon className="w-5" />}
     </button>
   );
 }
