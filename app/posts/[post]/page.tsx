@@ -7,7 +7,7 @@ export default function Post({ params }: { params: { post: string } }) {
   const post = posts.find((blogPost) => blogPost.filename === params.post);
 
   return (
-    <article id="blog-post" className="prose mx-auto">
+    <article id="blog-post" className="prose mx-auto w-full">
       {/* Hero Section with Overlay */}
       <div className="relative h-90 rounded-lg overflow-hidden">
         {/* Background Image */}
