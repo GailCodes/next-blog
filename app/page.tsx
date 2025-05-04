@@ -1,14 +1,9 @@
+import { fontLora } from "@/lib/fonts";
 import { getBlogPosts } from "@/lib/posts";
-import { Lora } from "next/font/google";
 import Link from "next/link";
 import Divider from "./components/Divider";
 import PostCardBig from "./components/Posts/PostCardBig";
 import PostCardSmall from "./components/Posts/PostCardSmall";
-
-const fontLora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   const posts = getBlogPosts();
