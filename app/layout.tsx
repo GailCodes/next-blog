@@ -1,6 +1,6 @@
 import { fontRoboto } from "@/lib/fonts";
 import type { Metadata } from "next";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navigation/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
       <body
         className={`${fontRoboto.className} bg-zinc-300 text-black dark:bg-zinc-900 dark:text-white text-lg px-4`}
       >
-        <div className="flex flex-col gap-4 my-8 max-w-5xl m-auto">
+        <div className="relative flex flex-col gap-4 my-8 max-w-5xl m-auto">
           <Navbar />
           {children}
         </div>

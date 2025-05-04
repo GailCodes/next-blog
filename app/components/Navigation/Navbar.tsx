@@ -1,5 +1,5 @@
 import NavItem from "./NavItem";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   return (
