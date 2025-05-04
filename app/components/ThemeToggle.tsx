@@ -6,7 +6,7 @@ import { MoonIcon } from "@heroicons/react/16/solid";
 export default function LightDarkModeToggle({
   className,
 }: {
-  className: string;
+  className?: string;
 }) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
