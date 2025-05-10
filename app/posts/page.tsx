@@ -9,8 +9,8 @@ const fontLora = Lora({
   subsets: ["latin"],
 });
 
-export default function Home() {
-  const posts = getBlogPosts();
+export default async function Home() {
+  const posts = await getBlogPosts();
   return (
     <main>
       <h3 className={`${fontLora.className} text-4xl font-semibold mb-4`}>

@@ -1,10 +1,18 @@
 import HighlightedCodeBlock from "@/app/components/HighlightedCodeBlock";
 import { getBlogPosts } from "@/lib/posts";
+import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
-export default function Post({ params }: { params: { post: string } }) {
-  const posts = getBlogPosts();
-  const post = posts.find((blogPost) => blogPost.filename === params.post);
+async function getPost(filename: string) {
+  const posts = await getBlogPosts();
+  return posts.find((post) => post.filename === filename);
+}
+
+export default async function Post({ params }: { params: { post: string } }) {
+  const { post } = await params;
+  const blogPost = await getPost(params.post);
+
+  if (!blogPost) return notFound();
 
   return (
     <article id="blog-post" className="prose mx-auto w-full">
@@ -13,7 +21,7 @@ export default function Post({ params }: { params: { post: string } }) {
         {/* Background Image */}
         <div
           style={{
-            backgroundImage: `url('${post?.data.cover}')`,
+            backgroundImage: `url('${blogPost?.data.cover}')`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -25,7 +33,7 @@ export default function Post({ params }: { params: { post: string } }) {
 
         <div className="relative z-20 h-full flex items-center p-8">
           <h1 className="text-3xl md:text-6xl text-white font-bold drop-shadow-lg">
-            {post?.data.title}
+            {blogPost?.data.title}
           </h1>
         </div>
       </div>
@@ -59,7 +67,7 @@ export default function Post({ params }: { params: { post: string } }) {
           },
         }}
       >
-        {post?.content}
+        {blogPost?.content}
       </ReactMarkdown>
     </article>
   );

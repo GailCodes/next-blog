@@ -5,7 +5,7 @@ import path from "path";
 
 const postsDir = path.join(process.cwd(), "content/posts");
 
-export function getBlogPosts(): Post[] {
+export async function getBlogPosts(): Promise<Post[]> {
   const files = fs.readdirSync(postsDir);
 
   return files
@@ -26,4 +26,11 @@ export function getBlogPosts(): Post[] {
       };
     })
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
+    post: post.filename,
+  }));
 }

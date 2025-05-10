@@ -5,8 +5,8 @@ import Divider from "./components/Divider";
 import PostCardBig from "./components/Posts/PostCardBig";
 import PostCardSmall from "./components/Posts/PostCardSmall";
 
-export default function Home() {
-  const posts = getBlogPosts();
+export default async function Home() {
+  const posts = await getBlogPosts();
   return (
     <main>
       <h1 className={`${fontLora.className} text-6xl`}>NextJS Blog</h1>
