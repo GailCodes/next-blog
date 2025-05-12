@@ -1,6 +1,5 @@
 import { getBlogPosts } from "@/lib/posts";
 import { Lora } from "next/font/google";
-import Link from "next/link";
 import Divider from "../components/Divider";
 import PostCardSmall from "../components/Posts/PostCardSmall";
 

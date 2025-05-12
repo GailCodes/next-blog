@@ -28,9 +28,7 @@ export async function getBlogPosts(): Promise<Post[]> {
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-export async function generateStaticParams() {
+export async function getPost(filename: string) {
   const posts = await getBlogPosts();
-  return posts.map((post) => ({
-    post: post.filename,
-  }));
+  return posts.find((post) => post.filename === filename);
 }

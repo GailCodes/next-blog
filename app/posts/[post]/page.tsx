@@ -1,14 +1,13 @@
 import HighlightedCodeBlock from "@/app/components/HighlightedCodeBlock";
-import { getBlogPosts } from "@/lib/posts";
+import { getBlogPosts, getPost } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
-async function getPost(filename: string) {
-  const posts = await getBlogPosts();
-  return posts.find((post) => post.filename === filename);
-}
-
-export default async function Post({ params }: { params: { post: string } }) {
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ post: string }>;
+}) {
   const { post } = await params;
   const blogPost = await getPost(post);
 
