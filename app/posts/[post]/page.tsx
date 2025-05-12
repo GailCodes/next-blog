@@ -10,7 +10,7 @@ async function getPost(filename: string) {
 
 export default async function Post({ params }: { params: { post: string } }) {
   const { post } = await params;
-  const blogPost = await getPost(params.post);
+  const blogPost = await getPost(post);
 
   if (!blogPost) return notFound();
 
