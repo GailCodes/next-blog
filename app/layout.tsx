@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontRoboto.className} bg-zinc-300 text-black dark:bg-zinc-900 dark:text-white text-lg px-4`}
+        className={`${fontRoboto.className} bg-zinc-200 text-black dark:bg-zinc-900 dark:text-white text-lg px-4`}
       >
         <div className="relative flex flex-col gap-4 my-8 max-w-5xl m-auto">
           <Navbar />
