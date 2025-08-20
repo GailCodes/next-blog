@@ -1,6 +1,31 @@
-# React Blog
+# Next.js Developer Blog
 
-This is a blog made with the React framework Next.js, Typescript and Tailwind CSS.
+A high-performance, statically-generated blog built with Next.js. It features a clean, responsive design and optimized syntax highlighting for code snippets.
+🎯 Key Features & Architecture
+
+  - **Static Site Generation (SSG):** All blog posts are pre-rendered at build time for maximum performance and SEO benefits.
+
+  - **Content Management:** Posts are written in Markdown and version-controlled alongside the codebase, ensuring a seamless workflow and content history.
+
+  - **Syntax Highlighting:** Integrated a modern highlighting library to make code examples clear and readable.
+
+  - **Responsive Design:** The layout is fully responsive and provides a great reading experience on any device.
+
+  - **Light and Dark mode functionality.**
+
+🛠️ Tech Stack
+
+  - Next.js
+
+  - React
+
+  - Markdown / MDX
+
+  - React Syntax Highlighter
+
+  - Tailwind CSS
+  
+  - Vercel 
 
 ## Screenshots:
 
