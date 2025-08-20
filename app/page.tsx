@@ -5,6 +5,8 @@ import Divider from "./components/Divider";
 import PostCardBig from "./components/Posts/PostCardBig";
 import PostCardSmall from "./components/Posts/PostCardSmall";
 
+export const dynamic = 'force-static';
+
 export default async function Home() {
   const posts = await getBlogPosts();
   return (
