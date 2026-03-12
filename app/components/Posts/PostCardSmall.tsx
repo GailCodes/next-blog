@@ -12,7 +12,7 @@ export default function PostCardSmall({
   return (
     <div className="flex gap-4">
       <div className="relative pb-2">
-        <img src={coverImage} alt="Cover image" className="rounded-sm w-42" />
+        <img src={coverImage} alt="Cover image" className="rounded-lg w-42" />
       </div>
 
       <div>
@@ -22,9 +22,9 @@ export default function PostCardSmall({
         >
           {title}
         </Link>
-        <p className="font-medium">{author}</p>
 
-        <p className="italic">{formatDateTime(date)}</p>
+        <p className="text-base font-medium">{author}</p>
+        <p className="text-base italic">{formatDateTime(date)}</p>
       </div>
     </div>
   );

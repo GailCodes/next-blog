@@ -30,7 +30,7 @@ export default function LightDarkModeToggle({
       onClick={() => setIsDarkMode(!isDarkMode)}
       className={`cursor-pointer ${className}`}
     >
-      {isDarkMode ? <MoonIcon className="w-5" /> : <SunIcon className="w-5" />}
+      {isDarkMode ? <MoonIcon className="w-6" /> : <SunIcon className="w-6" />}
     </button>
   );
 }

@@ -10,22 +10,22 @@ export default function PostCardBig({
   date,
 }: PostCard) {
   return (
-    <div>
-      <div className="relative pb-4">
+    <div className="flex flex-col gap-4 shadow-lg dark:shadow-sm shadow-gray-400 pb-4 rounded-lg">
+      <div className="relative">
         <img
           src={coverImage}
           alt="Cover image"
-          className="rounded-sm h-70 w-full"
+          className="rounded-t-lg h-70 w-full"
         />
       </div>
 
       <Link
         href={`posts/${url}`}
-        className="text-3xl text-blue-800 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 hover:underline"
+        className="text-2xl text-blue-800 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 hover:underline px-4"
       >
         {title}
       </Link>
-      <p>
+      <p className="text-base px-4">
         <span className="font-medium">By {author}</span>
         {" | "}
         <span className="italic">{formatDateTime(date)}</span>

@@ -12,11 +12,20 @@ export default async function Home() {
   const posts = await getBlogPosts();
   return (
     <main>
-      <h3 className={`${fontLora.className} text-4xl font-semibold mb-4`}>
+      <h3
+        className={`${fontLora.className} text-6xl font-light underline mt-4`}
+      >
         All posts:
       </h3>
 
-      <Divider />
+      <p className="pt-8 pb-14">
+        Explore our comprehensive collection of Next.js tutorials, tips, and
+        real-world solutions. Whether you're a beginner or an experienced
+        developer, our posts cover a wide range of topics to help you master
+        Next.js and build efficient web applications. Dive into practical
+        guides, best practices, and in-depth articles that will empower you to
+        create faster, more dynamic web experiences with Next.js.
+      </p>
 
       {posts.map((post, index) => (
         <PostCardSmall
